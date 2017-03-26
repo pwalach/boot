@@ -36,7 +36,7 @@ public class CityController {
 				: new ResponseEntity<String>("Problem with saving", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/top10/{country}")
+	@GetMapping("/get/top10c/{country}")
 	public @ResponseBody ResponseEntity<String> getTop10(@PathVariable String country) {
 		List<City> cities = cityService.findFirst10ByCountry(country);
 		cities.stream().forEach(System.out::println);
@@ -45,7 +45,7 @@ public class CityController {
 				: new ResponseEntity<String>("No city found", HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("/get/all/{page}/{size}")
+	@GetMapping("/get/allc/{page}/{size}")
 	public @ResponseBody Page<City> getTop10(@PathVariable Integer page, @PathVariable Integer size) {
 		return cityService.findAll(new PageRequest(page, size));
 	}
